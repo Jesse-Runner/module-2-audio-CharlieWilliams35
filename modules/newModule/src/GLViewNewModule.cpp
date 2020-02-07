@@ -150,29 +150,45 @@ void GLViewNewModule::onKeyDown( const SDL_KeyboardEvent& key )
 
    if( key.keysym.sym == SDLK_1 )
    {
-       this->snd->play3D("../../../shared/mm/sounds/sound1.wav", Vector(50, 0, 50), true, false, true);
+       if (!this->snd->getSound3D().empty() && !this->snd->getSound3D().at(0)->isFinished()) {
+           this->snd->stopSound3D();
+       }
+       this->snd->play3D("../../../shared/mm/sounds/sound5.wav", Vector(50, 0, 50), true, false, true);
        this->snd->getSound3D().back()->setVolume(0.9f);
        this->snd->getSound3D().back()->setMinDistance(7.0f);
    }
 
    if (key.keysym.sym == SDLK_2) {
+       if (!this->snd->getSound3D().empty() && !this->snd->getSound3D().at(0)->isFinished()) {
+           this->snd->stopSound3D();
+       }
            this->snd->play3D("../../../shared/mm/sounds/sound2.wav", Vector(50, 0, 50), true, false, true);
            this->snd->getSound3D().back()->setVolume(0.9f);
            this->snd->getSound3D().back()->setMinDistance(7.0f);
    }
 
    if (key.keysym.sym == SDLK_3) {
+       if (!this->snd->getSound3D().empty() && !this->snd->getSound3D().at(0)->isFinished()) {
+           this->snd->stopSound3D();
+       }
        this->snd->play3D("../../../shared/mm/sounds/sound3.wav", Vector(50, 0, 50), true, false, true);
        this->snd->getSound3D().back()->setVolume(0.9f);
        this->snd->getSound3D().back()->setMinDistance(7.0f);
    }
 
    if (key.keysym.sym == SDLK_4) {
+       if (!this->snd->getSound3D().empty() && !this->snd->getSound3D().at(0)->isFinished()) {
+           this->snd->stopSound3D();
+       }
        this->snd->play3D("../../../shared/mm/sounds/sound4.wav", Vector(50, 0, 50), true, false, true);
        this->snd->getSound3D().back()->setVolume(0.9f);
        this->snd->getSound3D().back()->setMinDistance(7.0f);
    }
-
+   if (key.keysym.sym == SDLK_o) {
+       if (!this->snd->getSound3D().empty() && !this->snd->getSound3D().at(0)->isFinished()) {
+           this->snd->stopSound3D();
+       }
+   }
 
 
    if (key.keysym.sym == SDLK_p) {
@@ -231,14 +247,14 @@ void Aftr::GLViewNewModule::loadMap()
    //skyBoxImageNames.push_back( ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/sky_warp+6.jpg" );
    //skyBoxImageNames.push_back( ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/space_Hubble_Nebula+6.jpg" );
    //skyBoxImageNames.push_back( ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/space_gray_matter+6.jpg" );
-   //skyBoxImageNames.push_back( ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/space_easter+6.jpg" );
+   skyBoxImageNames.push_back( ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/space_easter+6.jpg" );
    //skyBoxImageNames.push_back( ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/space_hot_nebula+6.jpg" );
    //skyBoxImageNames.push_back( ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/space_ice_field+6.jpg" );
    //skyBoxImageNames.push_back( ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/space_lemon_lime+6.jpg" );
    //skyBoxImageNames.push_back( ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/space_milk_chocolate+6.jpg" );
    //skyBoxImageNames.push_back( ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/space_solar_bloom+6.jpg" );
    //skyBoxImageNames.push_back( ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/space_thick_rb+6.jpg" );
-   skyBoxImageNames.push_back(ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/the_berg.jpg"); 
+   //skyBoxImageNames.push_back(ManagerEnvironmentConfiguration::getSMM() + "/images/skyboxes/the_berg.jpg"); 
 
    float ga = 0.1f; //Global Ambient Light level for this module
    ManagerLight::setGlobalAmbientLight( aftrColor4f( ga, ga, ga, 1.0f ) );
